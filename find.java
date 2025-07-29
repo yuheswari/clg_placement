@@ -1,12 +1,12 @@
 import java.util.*;
 import java.util.regex.*;
-class Regexlearn {
+class find {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s ="uk";
-        Pattern p =Pattern.compile("\\D+");//digits
+        String s ="uk is a good girl";
+        Pattern p =Pattern.compile("uk");//digits
         Matcher m =p.matcher(s);
-        if(m.matches()) {   //matches is an interface
+        if(m.find()) {   //matches is an interface
             System.out.println("valid");//check wheather match or not
         }
         else{
