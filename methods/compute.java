@@ -16,7 +16,7 @@ class compute {
         int a =sc.nextInt();
         int b =sc.nextInt();
         System.out.print("Enter the number:/n"+a+"and"+b);
-        System.out.println(compute(n));
+        System.out.println(compute(a,b));
     }
 }
 
