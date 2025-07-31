@@ -5,7 +5,7 @@ class fibo {
             return n;
         }
         else{
-            return fibo(n-2)+fibo(n-1);
+            return fibo(n-1)+fibo(n-2);
         }
     }
     public static void main(String[]args){

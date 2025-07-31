@@ -2,19 +2,20 @@ import java.util.*;
 
 class compute {
     static int compute(int n){
-        if(n==0){
+        if(b==0){
             return 1;
 
         }
         else{
-            return
-            
+            return a*(compute(a,b-1));
+
         }
     }
     public static void main(String[]args){
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number:/n");
-        int n =sc.nextInt();
+        int a =sc.nextInt();
+        int b =sc.nextInt();
+        System.out.print("Enter the number:/n"+a+"and"+b);
         System.out.println(compute(n));
     }
 }

@@ -1,7 +1,7 @@
 import java.util.*;
 class fact {
     static int fact(int n){
-        if(n==1){
+        if(n==1){ //checks the base condition
             return 1;
         }
         else{
