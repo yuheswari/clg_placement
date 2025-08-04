@@ -1,4 +1,4 @@
-class hwmethodoverloading.java{
+class hwmethodoverloading{
 
     void name(String name){
         System.out.println("name"+name);
