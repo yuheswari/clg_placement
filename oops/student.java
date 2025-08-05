@@ -41,5 +41,6 @@ public class student extends parent(){
         obj.work();
         obj.hod();
         obj.placementofficer();
-    }
+    
+}
 }
