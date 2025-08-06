@@ -31,6 +31,7 @@ public class student extends parent(){
     void name(){
         System.out.println("My name is"+name);
     }
+}
     public static void main(String[]args){
         Scanner sc = new Scanner(System.in);
         String na =sc.nextLine();
@@ -43,4 +44,4 @@ public class student extends parent(){
         obj.placementofficer();
     
 }
-}
+
