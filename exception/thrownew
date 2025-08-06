@@ -4,6 +4,9 @@ class finally {
         Scanner sc = new Scanner(System.in);
         try {
             int n = sc.nextInt();
+            if (n < 0) {
+                throw new IllegalArgumentException("Negative numbers are not allowed.");
+            }
             System.out.println("You entered: " + n);
         } catch (Exception e) {
             System.out.println("Exception caught: " + e);
