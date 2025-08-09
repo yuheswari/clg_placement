@@ -14,6 +14,7 @@ public class armstrong {
             sum += digit * digit * digit; // Cube each digit
             num /= 10;
         }
+        
 
         if (sum == original) {
             System.out.println(original + " is an Armstrong number.");
