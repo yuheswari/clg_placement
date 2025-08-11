@@ -37,7 +37,8 @@ class ll {
         }
         System.out.println("null"); // End of list
     }
-}
+
+ 
 
 // Main class to run the program
 public class linked {
@@ -55,5 +56,6 @@ public class linked {
             }
             li.display(); // Show current list after each insertion
         }
+       
     }
 }
