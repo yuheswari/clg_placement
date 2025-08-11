@@ -1,6 +1,13 @@
 import java.util.*;
 
 // Node class represents each element in the linked list
+//
+//  +------+     +------+     +------+
+//  | data | --> | data | --> | data | --> null
+//  +------+     +------+     +------+
+//     ^
+//   head
+//
 class node {
     int data; // Value stored in the node
     node next; // Reference to the next node
@@ -12,7 +19,16 @@ class node {
     }
 }
 
-// ll class manages the linked list (insertion and display)
+// ll class manages the linked list (insertion, display, and even count)
+//
+// Example after inserting 2, 5, 8:
+//  head
+//   |
+//   v
+//  +---+    +---+    +---+
+//  | 2 |--->| 5 |--->| 8 |--->null
+//  +---+    +---+    +---+
+//
 class ll {
     node head = null, tail = null; // head points to first node, tail to last
 
@@ -38,9 +54,29 @@ class ll {
         System.out.println("null"); // End of list
     }
 
- 
+    // Count and print the number of even numbers in the list
+    void printEvenCount() {
+        int count = 0;
+        node temp = head;
+        while (temp != null) {
+            if (temp.data % 2 == 0) {
+                count++;
+            }
+            temp = temp.next;
+        }
+        System.out.println("Number of even numbers: " + count);
+    }
+}
 
 // Main class to run the program
+//
+// Input example:
+// 2 5 8 -1
+// Output:
+// 2-> null
+// 2-> 5-> null
+// 2-> 5-> 8-> null
+// Number of even numbers: 2
 public class linked {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -56,6 +92,7 @@ public class linked {
             }
             li.display(); // Show current list after each insertion
         }
-       
+        // Print the number of even numbers in the list
+        li.printEvenCount();
     }
 }

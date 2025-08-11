@@ -1,61 +1,96 @@
-import java . util .*;
-class node{
-    int data;
-    node next;
-    //creating constructor
-    node(int data){
-        this.data=data;
-        node next;
-    }
+import java.util.*;
 
+// Node class represents each element in the linked list
+//
+//  +------+     +------+     +------+
+//  | data | --> | data | --> | data | --> null
+//  +------+     +------+     +------+
+//     ^
+//   head
+class node {
+    int data; // Value stored in the node
+    node next; // Reference to the next node
+
+    // Constructor to create a new node with given data
+    node(int data) {
+        this.data = data;
+        this.next = null;
+    }
 }
 
-class linked_list{
-    node head = null, tail = null;
-    void insert(){
-        node nn =new node();
-        if(head ==null){
-            head =nn;
-            tail=nn;
-        }
-        else{
-            tail.next =nn;
-            tail =nn;
+// linked_list class manages the linked list (insertion, display, and even count)
+//
+// Example after inserting 2, 5, 8:
+//  head
+//   |
+//   v
+//  +---+    +---+    +---+
+//  | 2 |--->| 5 |--->| 8 |--->null
+//  +---+    +---+    +---+
+class linked_list {
+    node head = null, tail = null; // head points to first node, tail to last
+
+    // Insert a new value at the end of the list
+    void insert(int val) {
+        node nn = new node(val); // Create a new node
+        if (head == null) { // If list is empty
+            head = nn; // New node is now head
+            tail = nn; // and also tail
+        } else {
+            tail.next = nn; // Link last node to new node
+            tail = nn; // Update tail to new node
         }
     }
 
-}
-
-void printEvenCount(){
-    int count =0;
-    node temp =head;
-    while(temp !=null){
-        if(temp.data %2 ==0){
-            count++;
+    // Display all elements in the list
+    void display() {
+        node temp = head; // Start from head
+        while (temp != null) { // Traverse till end
+            System.out.print(temp.data + " "); // Print data
+            temp = temp.next; // Move to next node
         }
-        temp = temp.next;
+        System.out.println(); // End of list
     }
-    System.out.println("Count of even numbers: " + count);
+
+    // Count and print the number of even numbers in the list
+    void printEvenCount() {
+        int count = 0;
+        node temp = head;
+        while (temp != null) {
+            if (temp.data % 2 == 0) {
+                count++;
+            }
+            temp = temp.next;
+        }
+        System.out.println("Count of even numbers: " + count);
+    }
 }
 
-public class numbers{
-    public static void main(String[]args){
+// Main class to run the program
+//
+// Input example:
+// 2 5 8 -1
+// Output:
+// 2 
+// 2 5 
+// 2 5 8 
+// Count of even numbers: 2
+public class numbers {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        linked_list ll = new linked_list();
+        linked_list ll = new linked_list(); // Create a linked list object
         int val;
-        while(true){
-            val =sc .nextInt();
-            if (val == -1){
-                break;
+        // Keep taking input until user enters -1
+        while (true) {
+            val = sc.nextInt(); // Read value
+            if (val == -1) {
+                break; // Stop if -1 is entered
+            } else {
+                ll.insert(val); // Insert value into list
             }
-            else{
-                ll.insert(val);
-            }
-            ll.display();
-        
+            ll.display(); // Show current list after each insertion
         }
-        ll.printEvenCount(); // Call to print even count
-
+        // Print the number of even numbers in the list
+        ll.printEvenCount();
     }
-
 }
