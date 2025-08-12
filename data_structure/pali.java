@@ -11,6 +11,15 @@ class node{
 class LinkedList{
     node head=null,tail=null;
 
+    /*
+     * LIST SHAPE (after several inserts):
+     *  head                              tail
+     *   |                                 |
+     *   v                                 v
+     *  [a] -> [b] -> [c] -> [d] -> ... -> [z] -> null
+     *  Each node: [ value ]--next--> next node (or null)
+     */
+
     void insert(int data){
         node newNode = new node(data);
         if(head == null){
@@ -42,6 +51,10 @@ class LinkedList{
      * @implNote Runs in O(n) time with O(1) extra space.
      */
     node rev(node n){
+       // REVERSE VISUAL (before): X -> Y -> Z -> null
+       // pass1: (X.next->null)   null <- X   Y -> Z -> null
+       // pass2: (Y.next->X)      null <- X <- Y   Z -> null
+       // pass3: (Z.next->Y)      null <- X <- Y <- Z (new head)
        node current =n;
        node prev = null;
        node next = null;
@@ -55,7 +68,22 @@ class LinkedList{
 
     }
     void checkpal(){
-        //step1 to define the mid value
+    // PALINDROME CHECK PHASES (in-place O(1) space):
+    // 1) Find middle (slow/fast)
+    // 2) Split & reverse second half
+    // 3) Compare first half vs reversed second half
+    // 4) (Optional) Conclude (no restore here)
+    //
+    // EXAMPLE: 1 2 3 2 1
+    // slow/fast walk:
+    //  s f
+    // [1]->[2]->[3]->[2]->[1]
+    //    s     f
+    //       s        f(end)
+    // slow at middle (3)
+    // split after slow: first: 1->2->3   second: 2->1
+    // reverse(second) => 1->2
+    // compare columns: (1,1) (2,2) then second half ends => palindrome
         node slow = head;
         node fast=head;
         while(fast.next!=null &&fast.next.next!=null){
@@ -88,17 +116,14 @@ public class pali{
         Scanner sc = new Scanner(System.in);
         LinkedList ll = new LinkedList();
         int val;
-        while(true){
-            val =sc.nextInt();
-            if(val ==-1){
-                ll.insert(val);
-            }
-            else{
-                break;
-            }
-            ll.display();
-            ll.checkpal();
+        while(true){                 // read until -1
+            val = sc.nextInt();       // next number
+            if(val == -1) break;      // stop on sentinel
+            ll.insert(val);           // insert normal value
         }
+        ll.display();                 // show list
+        ll.checkpal();                // check palindrome
+        
     }
 }
 
