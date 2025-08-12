@@ -35,6 +35,7 @@ class ll {
     // Insert a new value at the end of the list
     void insert(int val) {
         node nn = new node(val); // Create a new node
+        //to make a connection
         if (head == null) { // If list is empty
             head = nn; // New node is now head
             tail = nn; // and also tail
@@ -53,20 +54,21 @@ class ll {
         }
         System.out.println("null"); // End of list
     }
-
-    // Count and print the number of even numbers in the list
-    void printEvenCount() {
-        int count = 0;
-        node temp = head;
-        while (temp != null) {
-            if (temp.data % 2 == 0) {
-                count++;
-            }
-            temp = temp.next;
-        }
-        System.out.println("Number of even numbers: " + count);
-    }
 }
+
+//     // Count and print the number of even numbers in the list
+//     void printEvenCount() {
+//         int count = 0;
+//         node temp = head;
+//         while (temp != null) {
+//             if (temp.data % 2 == 0) {
+//                 count++;
+//             }
+//             temp = temp.next;
+//         }
+//         System.out.println("Number of even numbers: " + count);
+//     }
+// }
 
 // Main class to run the program
 //
@@ -92,7 +94,7 @@ public class linked {
             }
             li.display(); // Show current list after each insertion
         }
-        // Print the number of even numbers in the list
-        li.printEvenCount();
+        // // Print the number of even numbers in the list
+        // li.printEvenCount();
     }
 }
