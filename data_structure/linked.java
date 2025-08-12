@@ -8,14 +8,13 @@ import java.util.*;
 //     ^
 //   head
 //
-class node {
-    int data; // Value stored in the node
-    node next; // Reference to the next node
-
-    // Constructor to create a new node with given data
-    node(int data) {
+// Node: one box in the chain
+class Node {
+    int data;
+    Node next;
+    Node(int data) {
         this.data = data;
-        next = null;
+        this.next = null;
     }
 }
 
@@ -29,30 +28,37 @@ class node {
 //  | 2 |--->| 5 |--->| 8 |--->null
 //  +---+    +---+    +---+
 //
-class ll {
-    node head = null, tail = null; // head points to first node, tail to last
+// LinkedList: manages the chain
+//
+// Quick visual:
+// [head] -> [2]->[5]->[8]->null
+class LinkedList {
+    Node head = null, tail = null;
 
-    // Insert a new value at the end of the list
+    // Add value at end
     void insert(int val) {
-        node nn = new node(val); // Create a new node
-        //to make a connection
-        if (head == null) { // If list is empty
-            head = nn; // New node is now head
-            tail = nn; // and also tail
+        Node nn = new Node(val);
+        if (head == null) {
+            head = tail = nn;
         } else {
-            tail.next = nn; // Link last node to new node
-            tail = nn; // Update tail to new node
+            tail.next = nn;
+            tail = nn;
         }
     }
 
-    // Display all elements in the list
+    // Print the list
     void display() {
-        node temp = head; // Start from head
-        while (temp != null) { // Traverse till end
-            System.out.print(temp.data + "-> "); // Print data
-            temp = temp.next; // Move to next node
-        }
-        System.out.println("null"); // End of list
+        for (Node temp = head; temp != null; temp = temp.next)
+            System.out.print(temp.data + "-> ");
+        System.out.println("null");
+    }
+
+    // Count even numbers, toughlish style
+    int countEvens() {
+        int count = 0;
+        for (Node temp = head; temp != null; temp = temp.next)
+            if (temp.data % 2 == 0) count++;
+        return count;
     }
 }
 
@@ -79,22 +85,17 @@ class ll {
 // 2-> 5-> null
 // 2-> 5-> 8-> null
 // Number of even numbers: 2
-public class linked {
+public class Linked {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ll li = new ll(); // Create a linked list object
+        LinkedList li = new LinkedList();
         int val;
-        // Keep taking input until user enters -1
         while (true) {
-            val = sc.nextInt(); // Read value
-            if (val == -1) {
-                break; // Stop if -1 is entered
-            } else {
-                li.insert(val); // Insert value into list
-            }
-            li.display(); // Show current list after each insertion
+            val = sc.nextInt();
+            if (val == -1) break;
+            li.insert(val);
+            li.display();
         }
-        // // Print the number of even numbers in the list
-        // li.printEvenCount();
+        System.out.println("Number of even numbers: " + li.countEvens());
     }
 }
