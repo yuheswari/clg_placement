@@ -68,25 +68,20 @@ class LinkedList{
 
     }
     void checkpal(){
-    // PALINDROME CHECK PHASES (in-place O(1) space):
-    // 1) Find middle (slow/fast)
-    // 2) Split & reverse second half
-    // 3) Compare first half vs reversed second half
-    // 4) (Optional) Conclude (no restore here)
-    //
-    // EXAMPLE: 1 2 3 2 1
-    // slow/fast walk:
-    //  s f
-    // [1]->[2]->[3]->[2]->[1]
-    //    s     f
-    //       s        f(end)
-    // slow at middle (3)
-    // split after slow: first: 1->2->3   second: 2->1
-    // reverse(second) => 1->2
-    // compare columns: (1,1) (2,2) then second half ends => palindrome
+        // PALINDROME CHECK PHASES (in-place O(1) space):
+        // Guard: empty or single node list is palindrome by definition.
+        if(head == null){
+            System.out.println("Empty list");
+            return;
+        }
+        if(head.next == null){
+            System.out.println("Palindrome");
+            return;
+        }
         node slow = head;
-        node fast=head;
-        while(fast.next!=null &&fast.next.next!=null){
+        node fast = head;
+        // Safer loop: ensure fast and fast.next exist before peeking fast.next.next
+        while(fast != null && fast.next != null && fast.next.next != null){
             slow=slow.next;
             fast=fast.next.next;
         }
