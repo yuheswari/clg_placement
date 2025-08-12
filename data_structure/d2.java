@@ -35,14 +35,15 @@ class Node {
 class LinkedList {
     Node head = null, tail = null;
 
-    // Add value at end
+    // insertion at beginning
     void insert(int val) {
         Node nn = new Node(val);
         if (head == null) {
             head = tail = nn;
-        } else {
-            tail.next = nn;
-            tail = nn;
+        } else {  //changing only this line
+            nn.next=head;
+            head=nn;
+            
         }
     }
 
