@@ -68,7 +68,7 @@ class linkedList{
 
         }
 
-        class SinglyLinkedListPalindrome {
+    class SinglyLinkedListPalindrome {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList ll = new LinkedList();
