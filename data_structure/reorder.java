@@ -86,7 +86,7 @@ class LinkedList{
             dummy.next = fh;
         }
 
-        Node temp = h;
+        Node temp = h.next;
 
         while(temp!=null){
             System.out.print(temp.data + "->");
