@@ -25,7 +25,7 @@ class stack {
     boolean isEmpty() {
         return top == null;
     }
-    int peek() {
+   void peek() {
         if (isEmpty()) {
             System.out.println("Stack is empty");
             return -1;
