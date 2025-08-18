@@ -64,19 +64,19 @@ class linked_list {
 }
 
 // Main class - program execution starts here
-public class doublylinked {
+public class doubly_even {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);  // For user input
         linked_list dl = new linked_list();   // Main doubly linked list
         int val;
 
-        System.out.println("Enter numbers (-1 to stop):");
+        System.out.println("Enter numbers :");
         while (true) {
-            val = sc.nextInt(); // Read number
-            if (val != -1) {    // If not stop signal
-                dl.insert(val); // Add to list
-            } else {
-                break;          // End loop
+            val = sc.nextInt();
+            if (val != -1) {   
+                dl.insert(val);
+                            } else {
+                break;          
             }
         }
 
